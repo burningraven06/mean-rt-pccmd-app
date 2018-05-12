@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
-
+const fruitRouter = require('./routes/fruitRoutes');
 
 //Initialize App
 const app = express();
@@ -28,9 +28,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname + '/views'));
 
 //render frontend file
-app.get('/', (req, res, next) => {
-	res.render('index.pug');
-})
+app.use('/', fruitRouter);
 
 //test setup
 app.get('/test', (req, res, next) => {
