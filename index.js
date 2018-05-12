@@ -20,6 +20,19 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
+//Serve all Static Files
+app.use('/assets', express.static('public'));
+
+//setup view engine and set path for templates
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname + '/views'));
+
+//render frontend file
+app.get('/', (req, res, next) => {
+	res.render('index.pug');
+})
+
+//test setup
 app.get('/test', (req, res, next) => {
 	res.send("Hey");
 })
