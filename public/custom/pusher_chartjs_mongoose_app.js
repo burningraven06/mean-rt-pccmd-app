@@ -6,8 +6,8 @@ var chartDiv = document.getElementById('chartDiv');
 function getData(){
 
 	var backendURL = 'http://localhost:3000/vote/get-all';
-	var host_backendURL = 'http://' + window.location.host + '/vote/get-all';
-	var hostname_backendURL = 'http://' +window.location.hostname + '/vote/get-all';
+	var host_backendURL = 'https://' + window.location.host + '/vote/get-all';
+	var hostname_backendURL = 'https://' +window.location.hostname + '/vote/get-all';
 
 	fetch(host_backendURL)
 	.then( res => res.json() )
@@ -124,8 +124,8 @@ drinkForm.addEventListener('submit', function(event){
 		// console.log("From Form Value: ", drinkChoice.value);
 
 		var backendURL = 'http://localhost:3000/vote';
-		var host_backendURL = 'http://' + window.location.host + '/vote';
-		var hostname_backendURL = 'http://' +window.location.hostname + '/vote';
+		var host_backendURL = 'https://' + window.location.host + '/vote';
+		var hostname_backendURL = 'https://' +window.location.hostname + '/vote';
 
 		fetch(host_backendURL, {
 			method: 'POST',
