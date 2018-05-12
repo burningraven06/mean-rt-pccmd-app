@@ -17,8 +17,8 @@ app.use(cors());
 app.use(morgan('dev'));
 
 //Use Bodyparser to grab Form Data
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 
 //Serve all Static Files
 app.use('/assets', express.static('public'));
@@ -28,7 +28,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname + '/views'));
 
 //render frontend file
-app.use('/', drinkRouter);
+app.use('/vote', drinkRouter);
 
 //test setup
 app.get('/test', (req, res, next) => {
