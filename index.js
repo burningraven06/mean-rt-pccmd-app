@@ -6,6 +6,15 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 const drinkRouter = require('./routes/drinkRoutes');
+const environment_vars = require('dotenv').config();
+
+const dbConnStr = `mongodb://${process.env.MLAB_USERNAME}:${process.env.MLAB_PASSWORD}@ds121960.mlab.com:21960/realtime-drink-voting-pusher-app`;
+
+//Connect to MLAB DB
+mongoose.connect(dbConnStr).then( () => {
+	console.log("MLAB Connection OK");
+})
+
 
 //Initialize App
 const app = express();
