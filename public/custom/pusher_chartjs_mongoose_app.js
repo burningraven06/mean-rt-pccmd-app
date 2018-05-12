@@ -2,6 +2,26 @@ var drinkForm = document.getElementById('drinkForm');
 var statusDiv = document.getElementById('statusDiv');
 
 
+//Retrieve Data from DB
+function getData(){
+
+	var backendURL = 'http://localhost:3000/vote/get-all';
+	var host_backendURL = 'http://' + window.location.host + '/vote/get-all';
+	var hostname_backendURL = 'http://' +window.location.hostname + '/vote/get-all';
+
+	fetch(host_backendURL)
+	.then( res => res.json() )
+	.then (data => {
+		console.log(data.drinks);
+	})
+	.catch( err => {
+		console.log(err);
+	})
+}
+
+getData();
+
+//Form Submission, Save to DB, 
 drinkForm.addEventListener('submit', function(event){
 	event.preventDefault();
 	console.log('Form Submission Prevented');
@@ -15,7 +35,7 @@ drinkForm.addEventListener('submit', function(event){
   		var running = setTimeout(animate, 60);
 		}
 		animate();
-		console.log("From Form Value ", drinkChoice);
+		console.log("From Form Value: ", drinkChoice);
 
 		var backendURL = 'http://localhost:3000/vote';
 		var host_backendURL = 'http://' + window.location.host + '/vote';
@@ -31,7 +51,7 @@ drinkForm.addEventListener('submit', function(event){
 
 
 
-			
+
 			console.log("From Backend Server ", data);
 		})
 		.catch(err => {
