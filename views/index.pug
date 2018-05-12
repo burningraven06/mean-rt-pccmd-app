@@ -1,14 +1,69 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset='utf-8'>
 		<title> Voting App - Pusher Chartjs Mongoose </title>
+		<meta name="description" content="Real Time Voting App">
+		<meta name="keywords" content="Nodejs, Express, Pusher, MongoDB, MLAB, Mongoose, JavaScript, RealTime, Charts, Canvas.js, WebApp">
+		<meta name="author" content="Burning.Raven06">
+		<link rel='shortcut icon' href='assets/favicon/favicon.ico'>
 		<link rel='stylesheet' href='assets/materialize/css/materialize.min.css'>
+		<link rel='stylesheet' href='assets/materialize-icons/materialize-icons.css'>
+		<link rel='stylesheet' href='assets/custom/styles.css'>
 		<script src='assets/materialize/js/materialize.min.js'> </script>
 		<script src='assets/pusher/pusher.min.js'> </script>
 		<script src='assets/canvasjs/canvas.min.js'> </script>
 	</head>
 	<body>
-		<h1> Template works </h1>
+		<div class='container'>
+			<h3 class='mt64 mb64'> Vote your Favorite Drink! </h3>
+			<div class='col s4'>
+				<form id='fruitForm'>
+					<p> 
+						<label class='gray-font-color'> 
+							<input type='radio' name='drink' value='Coffee'> 
+							<span> Coffee </span>
+						</label>
+					</p>
+					<p> 
+						<label class='gray-font-color'>
+							<input type='radio' name='drink' value='Sparkling-Water'>
+							<span> Sparkling Water </span>
+						</label>
+					</p>
+					<p> 
+						<label class='gray-font-color'> 
+							<input type='radio' name='drink' value='Ice-Tea'>
+							<span> Ice Tea </span>
+						</label>
+					</p>
+					<p>
+						<label class='gray-font-color'>
+							<input type='radio' name='drink' value='Apple-Juice'>
+							<span> Apple Juice </span>
+						</label>
+					</p>
+					<p> 
+						<label class='gray-font-color'>
+							<input type='radio' name='drink' value='Mojito'>
+							<span> Mojito </span>
+						</label>
+					</p>
+					<p> 
+						<label class='gray-font-color'> 
+							<input type='radio' name='drink' value='Kiwi-Smoothie'>
+							<span> Kiwi Smoothie </span>
+						</label>
+					</p>
+					<button class='btn btn-large waves-effect waves-light' type='submit'>
+						<span>Vote<span><i class="material-icons right">send</i>
+					</button>
+				</form>
+			</div>
+			<div class='col s8'>
+
+			</div>
+		</div>
 	</body>
 	<script src='assets/custom/pusher_chartjs_mongoose_app.js'> </script>
 </html>
