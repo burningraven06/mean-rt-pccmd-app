@@ -15,10 +15,17 @@
 }
 #statusDiv{
 	height: 10px;
-	padding-top:32px;
-	padding-bottom: 60px;
+	padding-top:24px;
+	padding-bottom: 48px;
 	width: 33%;
 }
 .gray-font-color{
 	color: #606060;
+}
+.span-me{
+	font-family: 'Monospace';
+	font-weight: bold;
+}
+.mt48{
+	margin-top:48px;
 }

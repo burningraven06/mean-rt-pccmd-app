@@ -12,14 +12,14 @@ function getData(){
 	fetch(host_backendURL)
 	.then( res => res.json() )
 	.then (data => {
-		
+
 		var db_data = data.all_data;
 		// var voteCountsObj = db_data.reduce(
 		// 	(total, item) => (
 		// 		(total[item.drink] = (total[item.drink] || 0) + parseInt(item.points)), total	)
 		// 	, {});
 
-		var voteCountsObj_v2 = db_data.reduce( 
+		var voteCountsObj_v2 = db_data.reduce(
 			function(obj, item){
 				if (!obj[item.drink]) {
 					obj[item.drink] = 0;
@@ -32,12 +32,12 @@ function getData(){
 		// console.log(voteCountsObj_v2);
 
 		let dataPointsArr = [
-			{	
-				label: "Coffee", 
-				y: voteCountsObj_v2.Coffee 
+			{
+				label: "Coffee",
+				y: voteCountsObj_v2.Coffee
 			},
-			{ 
-				label: "SparklingWater", 
+			{
+				label: "SparklingWater",
 				y: voteCountsObj_v2.SparklingWater
 			},
 			{
@@ -107,7 +107,7 @@ getData();
 
 
 
-//Form Submission, Save to DB, 
+//Form Submission, Save to DB,
 drinkForm.addEventListener('submit', function(event){
 	event.preventDefault();
 	// console.log('Form Submission Prevented');
@@ -117,7 +117,7 @@ drinkForm.addEventListener('submit', function(event){
 		var str = `Woohoo ${drinkChoice.value}!`.split("");
 		statusDiv.innerHTML = "";
 		function animate() {
-			str.length > 0 ? statusDiv.innerHTML += str.shift() : clearTimeout(running); 
+			str.length > 0 ? statusDiv.innerHTML += str.shift() : clearTimeout(running);
 			var running = setTimeout(animate, 60);
 		}
 		animate();
@@ -144,7 +144,7 @@ drinkForm.addEventListener('submit', function(event){
 		var str = "Please Select a drink!".split("");
 		statusDiv.innerHTML = "";
 		function animate() {
-			str.length > 0 ? statusDiv.innerHTML += str.shift() : clearTimeout(running); 
+			str.length > 0 ? statusDiv.innerHTML += str.shift() : clearTimeout(running);
 			var running = setTimeout(animate, 60);
 		}
 		animate();

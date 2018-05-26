@@ -39,10 +39,11 @@ app.set('views', path.join(__dirname + '/views'));
 //render frontend file
 app.use('/vote', drinkRouter);
 
-//test setup
-app.get('/test', (req, res, next) => {
-	res.send("Hey");
-})
+//redirect all to vote route
+app.get('*', (req, res, next) => {
+	res.redirect("/vote");
+});
+
 
 //Make server listen to port
 app.listen(port, () => console.log(`Backend Server running on: ${port}`));
