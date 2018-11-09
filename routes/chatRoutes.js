@@ -4,7 +4,7 @@ const chatRouter = express.Router();
 // const pusherInit = require("../config/pusherInit");
 
 chatRouter.get("/", (req, res, next) => {
-  res.send("Chat Here")
+  res.render("chat/index.pug");
 })
 
 module.exports = chatRouter

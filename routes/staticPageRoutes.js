@@ -2,7 +2,7 @@ const express = require('express');
 const pageRouter = express.Router();
 
 pageRouter.get("/", (req, res, next) => {
-  res.send("About Here");
+  res.render("pages/about.pug")
 })
 
 module.exports = pageRouter

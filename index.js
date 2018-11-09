@@ -16,7 +16,6 @@ mongoose.connect(dbConnStr).then( () => {
 	console.log("MLAB Connection OK");
 })
 
-
 //Initialize App
 const app = express();
 
@@ -37,23 +36,23 @@ app.use('/assets', express.static('public'));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname + '/views'));
 
-//render frontend file
+//redirect home to vote url
 app.get("/", (req, res, next) => {
 	res.redirect("/vote");
 });
 
+//setup routers based on prefix
 app.use('/vote', drinkRouter);
 app.use('/chat', chatRouter);
 app.use('/about', aboutRouter);
 
-//redirect all to vote route
+//redirect all to cust404 page
 app.use('*', (req, res, next) => {
 	var context = {
 		requestURL : req.originalUrl.toString().substr(1)
 	}
 	res.render("pages/cust-404.pug", context);
 });
-
 
 //Make server listen to port
 app.listen(port, () => console.log(`Server running on: ${port}`));

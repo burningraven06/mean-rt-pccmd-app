@@ -15,9 +15,8 @@
 }
 #statusDiv{
 	height: 10px;
-	padding-top:24px;
-	padding-bottom: 48px;
-	width: 33%;
+	padding-top: 12px;
+	padding-bottom: 24px;
 }
 .gray-font-color{
 	color: #606060;
