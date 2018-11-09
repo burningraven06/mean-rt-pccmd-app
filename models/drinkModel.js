@@ -8,6 +8,9 @@ const drinkSchema = new mongoose.Schema({
 	points: {
 		type: Number,
 		required: true
+	},
+	votingTime : {
+		type : Date
 	}
 });
 

@@ -14,8 +14,7 @@ drinkRouter.get('/', (req, res, next) => {
 drinkRouter.get('/get-all', (req, res, next) => {
 	Drink.find()
 	.then( docs => {
-		console.log("Fetching from MLAB: ...")
-		res.status(200).json({ all_data: docs, success: true});
+		res.status(200).json({ drinksData: docs, success: true});
 	})
 	.catch( err => {
 		console.log("DB Error: ", err);
@@ -27,7 +26,8 @@ drinkRouter.get('/get-all', (req, res, next) => {
 drinkRouter.post('/', (req, res, next) => {
 	const favDrink = new Drink({
 		drink: req.body.drink,
-		points: 1
+		points: 1,
+		votingTime : new Date()
 	});
 
 	favDrink.save()
