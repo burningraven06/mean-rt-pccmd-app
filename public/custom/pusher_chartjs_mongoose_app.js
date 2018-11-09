@@ -5,11 +5,12 @@ var chartDiv = document.getElementById('chartDiv');
 //Retrieve Data from DB
 function getData(){
 
-	var backendURL = 'http://localhost:3000/vote/get-all';
+	var localHostURL = 'http://localhost:3000/vote/get-all';
 	var host_backendURL = 'https://' + window.location.host + '/vote/get-all';
-	var hostname_backendURL = 'https://' +window.location.hostname + '/vote/get-all';
+	var hostname_backendURL = 'https://' + window.location.hostname + '/vote/get-all';
 
-	fetch(host_backendURL)
+	fetch(localHostURL)
+	// fetch(host_backendURL)
 	.then( res => res.json() )
 	.then (data => {
 

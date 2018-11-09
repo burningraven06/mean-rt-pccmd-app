@@ -1,22 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const Drink = require('../models/drinkModel');
 const drinkRouter = express.Router();
-const environment_vars = require('dotenv').config();
-
 const Pusher = require('pusher');
+const pusherInit = require("../config/pusherInit");
 
-var pusher = new Pusher({
-  appId: `${process.env.PUSHER_APPID}`,
-  key: `${process.env.PUSHER_KEY}`,
-  secret: `${process.env.PUSHER_SECRET}`,
-  cluster: `${process.env.PUSHER_CLUSTER}`,
-  encrypted: true
-});
+var pusher = new Pusher(pusherInit);
 
 drinkRouter.get('/', (req, res, next) => {
 	res.render('index.pug');
 });
+
 
 drinkRouter.get('/get-all', (req, res, next) => {
 	Drink.find()
@@ -28,7 +21,8 @@ drinkRouter.get('/get-all', (req, res, next) => {
 		console.log("DB Error: ", err);
 		res.status(500).json({ error: err});
 	})
-})
+});
+
 
 drinkRouter.post('/', (req, res, next) => {
 	const favDrink = new Drink({
@@ -53,7 +47,6 @@ drinkRouter.post('/', (req, res, next) => {
 		res.status(400).json({ error: error});
 	})
 
-	
 })
 
 module.exports = drinkRouter;

@@ -6,9 +6,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 const drinkRouter = require('./routes/drinkRoutes');
-const environment_vars = require('dotenv').config();
-
-const dbConnStr = `mongodb://${process.env.MLAB_USERNAME}:${process.env.MLAB_PASSWORD}@ds121960.mlab.com:21960/realtime-drink-voting-pusher-app`;
+const chatRouter = require('./routes/chatRoutes');
+const aboutRouter = require('./routes/staticPageRoutes');
+const KEYS = require("./config/keys");
+const dbConnStr = KEYS.MLAB_DBURI;
 
 //Connect to MLAB DB
 mongoose.connect(dbConnStr).then( () => {
@@ -37,13 +38,22 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname + '/views'));
 
 //render frontend file
+app.get("/", (req, res, next) => {
+	res.redirect("/vote");
+});
+
 app.use('/vote', drinkRouter);
+app.use('/chat', chatRouter);
+app.use('/about', aboutRouter);
 
 //redirect all to vote route
-app.get('*', (req, res, next) => {
-	res.redirect("/vote");
+app.use('*', (req, res, next) => {
+	var context = {
+		requestURL : req.originalUrl.toString().substr(1)
+	}
+	res.render("pages/cust-404.pug", context);
 });
 
 
 //Make server listen to port
-app.listen(port, () => console.log(`Backend Server running on: ${port}`));
+app.listen(port, () => console.log(`Server running on: ${port}`));
