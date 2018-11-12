@@ -15,8 +15,8 @@ var hostname_backend_SubmitURL = 'https://' + window.location.hostname + '/vote'
 //Retrieve Data from DB
 function getData(){
 
-	fetch(localHost_GetAllURL)
-	// fetch(host_backend_GetAllURL)
+	// fetch(localHost_GetAllURL)
+	fetch(host_backend_GetAllURL)
 	.then( res => res.json() )
 	.then( data => {
 
@@ -159,8 +159,8 @@ function animateAndSubmit(drinkChoice){
 		headers: new Headers( { 'Content-Type': 'application/json' })
 	}
 
-	fetch(localhost_SubmitURL, fetchOptions)
-	// fetch(host_backend_SubmitURL, fetchOptions);
+	// fetch(localhost_SubmitURL, fetchOptions)
+	fetch(host_backend_SubmitURL, fetchOptions);
 }
 
 
