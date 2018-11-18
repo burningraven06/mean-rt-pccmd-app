@@ -22,7 +22,7 @@ function getData(){
 		var voteCountsObj = reduceAndCreateObj(mongoDrinks);
 		var drinksDataPointsArr = createDataPoints(voteCountsObj);
 		renderDrinksChart(drinksDataPointsArr);		
-		setupPusherAndReRenderChart(drinksDataPointsArr);
+		createPusherChannel_AndReRenderChart(drinksDataPointsArr);
 		
 	})
 	.catch( err => {
@@ -107,12 +107,8 @@ function renderDrinksChart(dataDrinkPoints){
 
 
 
-function setupPusherAndReRenderChart(drinksArr){
+function createPusherChannel_AndReRenderChart(drinksArr){
 	Pusher.logToConsole = false;
-	var pusherInitOptions = {
-		cluster: 'ap2',
-		encrypted: true
-	}
 
 	var drinkPusherInstance = new Pusher(pusherClientKey, pusherInitOptions);
 	var drinkChannel = drinkPusherInstance.subscribe('drink-voting-channel');
