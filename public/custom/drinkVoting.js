@@ -3,10 +3,10 @@ var statusDiv = document.getElementById('statusDiv');
 var chartDiv = document.getElementById('chartDiv');
 
 var localHost_GetAllURL = 'http://localhost:3000/vote/get-all';
-var hostname_backend_GetAllURL = 'https://' + window.location.hostname + '/vote/get-all';
+var host_backend_GetAllURL = 'https://' + window.location.host + '/vote/get-all';
 
 var localhost_SubmitURL = "http://localhost:3000/vote";
-var hostname_backend_SubmitURL = 'https://' + window.location.hostname + '/vote';
+var host_backend_SubmitURL = 'https://' + window.location.host + '/vote';
 
 
 
