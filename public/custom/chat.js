@@ -47,6 +47,8 @@ userNameSubmit.addEventListener("click", function(event){
 
 
 
+
+
 //listen for submit event 
 chatForm.addEventListener("submit", function(event){
   event.preventDefault();
@@ -83,8 +85,8 @@ function sendChatData(umsg){
 		headers: new Headers( { 'Content-Type': 'application/json' })
 	}
 
-	fetch(localHost_ChatURL, fetchOptions)
-  // fetch(hostname_backend_ChatURL, fetchOptions);
+	// fetch(localHost_ChatURL, fetchOptions)
+  fetch(hostname_backend_ChatURL, fetchOptions);
 }
 
 
@@ -102,8 +104,8 @@ function sendUserName(uname){
 		headers: new Headers( { 'Content-Type': 'application/json' })
 	}
 
-  fetch(localHost_UserNameURL, fetchOptions)
-    // fetch(localHost_UserNameURL, fetchOptions);
+  // fetch(localHost_UserNameURL, fetchOptions)
+    fetch(localHost_UserNameURL, fetchOptions);
 }
 
 
@@ -113,9 +115,7 @@ function sendUserName(uname){
 function subscribeToChatEvent(){
   Pusher.logToConsole = false;
 	chattingChannel.bind('message-sending-event', function(data){
-    renderChatData(data);
-    console.info("ALL TEST ", chatPusherInstance);
-    
+    renderChatData(data);   
   });
 
   chattingChannel.bind('username-sending-event', function(data){
