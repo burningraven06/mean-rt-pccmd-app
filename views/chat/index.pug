@@ -2,6 +2,8 @@ extends ../layouts/main.pug
 
 block bodyContent
   <div class='container'>
-    <h3> Chat Later</h3> 
+    include pageBody.pug
   </div>
-  
+
+block footerScripts
+  <script src='assets/custom/chat.js'> </script>

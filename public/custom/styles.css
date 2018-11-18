@@ -28,3 +28,13 @@
 .mt48{
 	margin-top:48px;
 }
+.usernameSpan{
+	font-weight: bold
+}
+#chatOutputDiv{
+	overflow-y: scroll;
+	height : 70vh;
+}
+.timePara{
+	font-size: 10px
+}

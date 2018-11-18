@@ -3,11 +3,9 @@ var statusDiv = document.getElementById('statusDiv');
 var chartDiv = document.getElementById('chartDiv');
 
 var localHost_GetAllURL = 'http://localhost:3000/vote/get-all';
-var host_backend_GetAllURL = 'https://' + window.location.host + '/vote/get-all';
 var hostname_backend_GetAllURL = 'https://' + window.location.hostname + '/vote/get-all';
 
 var localhost_SubmitURL = "http://localhost:3000/vote";
-var host_backend_SubmitURL = 'https://' + window.location.host + '/vote';
 var hostname_backend_SubmitURL = 'https://' + window.location.hostname + '/vote';
 
 
@@ -15,8 +13,8 @@ var hostname_backend_SubmitURL = 'https://' + window.location.hostname + '/vote'
 //Retrieve Data from DB
 function getData(){
 
-	// fetch(localHost_GetAllURL)
-	fetch(host_backend_GetAllURL)
+	fetch(localHost_GetAllURL)
+	// fetch(host_backend_GetAllURL)
 	.then( res => res.json() )
 	.then( data => {
 
@@ -159,8 +157,8 @@ function animateAndSubmit(drinkChoice){
 		headers: new Headers( { 'Content-Type': 'application/json' })
 	}
 
-	// fetch(localhost_SubmitURL, fetchOptions)
-	fetch(host_backend_SubmitURL, fetchOptions);
+	fetch(localhost_SubmitURL, fetchOptions)
+	// fetch(host_backend_SubmitURL, fetchOptions);
 }
 
 
